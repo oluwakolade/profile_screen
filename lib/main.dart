@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const ProfileScreen());
@@ -70,17 +71,19 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xff1f3251),
+                    Link(
+                      target: LinkTarget.blank,
+                      uri: Uri.parse('https://github.com/oluwakolade'),
+                      builder: (BuildContext context, FollowLink? followLink) =>
+                          ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xff1f3251),
+                        ),
+                        onPressed: followLink,
+                        icon: const Icon(Icons.open_in_browser),
+                        label: const Text('Open Github'),
                       ),
-                      onPressed: () {
-                        html.window
-                            .open('https://github.com/oluwakolade', "_blank");
-                      },
-                      icon: const Icon(Icons.open_in_browser),
-                      label: const Text('Open Github'),
-                    ),
+                    )
                   ],
                 ),
               ),
@@ -91,19 +94,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
-                    //        Link(
-                    //   target:
-                    //   uri: Uri.parse('http.com'),
-                    //   builder:(BuildContext context , FollowLink? followLink) => ElevatedButton.icon(
-                    //     style: ElevatedButton.styleFrom(
-                    //       backgroundColor: const Color(0xff1f3251),
-                    //     ),
-                    //     onPressed:followLink
-                         
-                    //     ,
-                    //     icon: const Icon(Icons.open_in_browser),
-                    //     label: const Text('Open Github'),
-                    //   ),
-                    // )
