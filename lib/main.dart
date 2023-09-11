@@ -22,30 +22,20 @@ class ProfileScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Center(
             child: SizedBox(
-              width: double.infinity,
+              width: 300,
               height: 500,
               child: Card(
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(20),
-                      width: double.infinity,
-                      child: Card(
-                        elevation: 5.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Container(
-                          height: 300,
-                          width: 300,
-                          padding: const EdgeInsets.all(10.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.asset(
-                              'assets/profile.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                      height: 300,
+                      width: 300,
+                      padding: const EdgeInsets.all(10.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.asset(
+                          'assets/profile.jpg',
+                          // fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -72,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Link(
-                      target: LinkTarget.blank,
+                      target: LinkTarget.self,
                       uri: Uri.parse('https://github.com/oluwakolade'),
                       builder: (BuildContext context, FollowLink? followLink) =>
                           ElevatedButton.icon(
